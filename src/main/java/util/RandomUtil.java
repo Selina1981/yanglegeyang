@@ -1,13 +1,5 @@
 package util;
 
-import action.MyX509TrustManager;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import java.net.URL;
-import java.util.Map;
 import java.util.Random;
 
 public class RandomUtil {

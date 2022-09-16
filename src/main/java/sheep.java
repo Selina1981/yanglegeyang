@@ -1,19 +1,20 @@
-package action.sheep;
-
-import action.MyX509TrustManager;
 import com.alibaba.fastjson.JSONObject;
+import util.MyX509TrustManager;
 import util.RandomUtil;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 
-public class sheepData {
+public class sheep {
 
-	private static String token = "ehbGciOiJIUI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTQ0MDY1MzYsIm5iZiI6MTY2MzMwNDMzNiwiaWF0IjoxNjYzMzAyNTM2LCJqdGkiOiJDTTpjYXRfbWF0Y2g6bHQxMjM0NTYiLCJvcGVuX2lkIjoiIiwidWlkIjo5Mzc2NjE4OSwiZGVidWciOiIiLCJsYW5nIjoiIn0.Bv-Wwmi6CN9Ya2MRhe8f3-WYrMV83DaVNVqRjOm0ZuE";
+	// 替换你的token
+	private static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTQ0MDY1MzYsIm5iZiI6MTY2MzMwNDMzNiwiaWF0IjoxNjYzMzAyNTM2LCJqdGkiOiJDTTpjYXRfbWF0Y2g6bHQxMjM0NTYiLCJvcGVuX2lkIjoiIiwidWlkIjo5Mzc2NjE4OSwiZGVidWciOiIiLCJsYW5nIjoiIn0.Bv-Wwmi6CN9Ya2MRhe8f3-WYrMV83DaVNVqRjOm0ZuE";
 
 	public static void main(String[] args) {
 		try {
