@@ -1,15 +1,7 @@
 package action.sheep;
 
-import action.AdvertArticles;
-import action.JDBCDemo;
 import action.MyX509TrustManager;
 import com.alibaba.fastjson.JSONObject;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import util.FileCopy;
-import util.HttpsConn;
 import util.RandomUtil;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -18,34 +10,25 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import java.io.*;
 import java.net.URL;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
 
-/**
- * 导出历史文章到目录文件
- */
 public class sheepData {
 
-	private static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTQ0MDY1MzYsIm5iZiI6MTY2MzMwNDMzNiwiaWF0IjoxNjYzMzAyNTM2LCJqdGkiOiJDTTpjYXRfbWF0Y2g6bHQxMjM0NTYiLCJvcGVuX2lkIjoiIiwidWlkIjo5Mzc2NjE4OSwiZGVidWciOiIiLCJsYW5nIjoiIn0.Bv-Wwmi6CN9Ya2MRhe8f3-WYrMV83DaVNVqRjOm0ZuE";
+	private static String token = "ehbGciOiJIUI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTQ0MDY1MzYsIm5iZiI6MTY2MzMwNDMzNiwiaWF0IjoxNjYzMzAyNTM2LCJqdGkiOiJDTTpjYXRfbWF0Y2g6bHQxMjM0NTYiLCJvcGVuX2lkIjoiIiwidWlkIjo5Mzc2NjE4OSwiZGVidWciOiIiLCJsYW5nIjoiIn0.Bv-Wwmi6CN9Ya2MRhe8f3-WYrMV83DaVNVqRjOm0ZuE";
 
 	public static void main(String[] args) {
-		System.out.println("【羊了个羊一键闯关开始启动】");
-		int cycle_count = 10;
-		for (int i = 0; i < cycle_count; i++) {
-			System.out.println("...第"+(i + 1)+"开始完成闯关...");
-			int cost_time = RandomUtil.getRandom(1, 3600);
-			System.out.println("生成随机完成耗时:"+cost_time);
-			finish_game(1, cost_time);
-			System.out.println("(【羊了个羊一键闯关开始结束】"+cost_time);
+		try {
+			System.out.println("【羊了个羊一键闯关开始启动】");
+			int cycle_count = 100;
+			for (int i = 0; i < cycle_count; i++) {
+				System.out.println("...第"+(i + 1)+"开始完成闯关...");
+				int cost_time = RandomUtil.getRandom(1, 3600);
+				System.out.println("生成随机完成耗时:"+cost_time);
+				finish_game(1, cost_time);
+				System.out.println("(【羊了个羊一键闯关开始结束】"+cost_time);
+				Thread.sleep(3000L);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
