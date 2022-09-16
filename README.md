@@ -26,8 +26,9 @@ git clone https://github.com/Selina1981/yanglegeyang.git
 ### 微信交流群
 交流相关问题请进微信群：
 
-①群（已满）![扫码进交流群](./weixinGroup1.png)
-②群![扫码进交流群](./weixinGroup2.png)
+③群：![扫码进交流群](./weixinGroup3.png)
+②群（已满）：![扫码进交流群](./weixinGroup2.png)
+①群（已满）：![扫码进交流群](./weixinGroup1.png)
 
 ### 免责声明
 
