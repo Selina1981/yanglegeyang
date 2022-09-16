@@ -14,17 +14,18 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Player {
     private static OkHttpClient.Builder client = HttpClient.client;
+    String name;
     String token;
 
-    long target = 1000;
+    long target = 999999999;
     ExecutorService executorService;
 
     AtomicLong tryTimes = new AtomicLong(0);
 
     AtomicLong successTimes = new AtomicLong(0);
 
-
-    public Player(String token) {
+    public Player(String name, String token) {
+        this.name = name;
         this.token = token;
     }
 
@@ -43,7 +44,7 @@ public class Player {
                 int cost_time = RandomUtil.getRandom(1, 3600);
                 finish_game(1, cost_time);
             } else {
-                System.out.println("已完成目标" + target);
+                System.out.println(name + "已完成目标" + target);
                 break;
             }
         }
@@ -68,7 +69,7 @@ public class Player {
 //                    System.out.println("请求失败，尝试重试===>"+response.toString());
                     return;
                 }
-                System.out.println("已完成第" + successTimes.incrementAndGet() + "次闯关");
+                System.out.println(name + "已完成第" + successTimes.incrementAndGet() + "次闯关");
 
 //                System.out.println("执行成功===>"+response.body().string());
             } catch (IOException e) {
@@ -85,11 +86,16 @@ public class Player {
     }
 
     public void statisticsTask(){
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        while (true) {
+            if(successTimes.get() >= target) {
+                break;
+            }
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.printf("%s已尝试 %d次, 成功%d次", name, tryTimes.get(), successTimes.get());
         }
-        System.out.printf("已尝试 %d次, 成功%d次", tryTimes.get(), successTimes.get());
     }
 }
