@@ -9,5 +9,8 @@
         <module name="sheep" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sheep" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
