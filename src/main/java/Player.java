@@ -69,7 +69,8 @@ public class Player {
 //                    System.out.println("请求失败，尝试重试===>"+response.toString());
                     return;
                 }
-//                System.out.println(name + "已完成第" + successTimes.incrementAndGet() + "次闯关");
+                long success = successTimes.incrementAndGet();
+//                System.out.println(name + "已完成第" + success + "次闯关");
 
 //                System.out.println("执行成功===>"+response.body().string());
             } catch (IOException e) {
