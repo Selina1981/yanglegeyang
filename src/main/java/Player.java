@@ -31,7 +31,7 @@ public class Player {
 
     public void play(){
         int n = 100;
-        executorService = Executors.newFixedThreadPool(n);
+        executorService = Executors.newFixedThreadPool(n + 1);
         for (int i = 0; i < n; i++) {
             executorService.execute(this::task);
         }
@@ -96,7 +96,7 @@ public class Player {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.printf("%s已尝试 %d次, 成功%d次", name, tryTimes.get(), successTimes.get());
+            System.out.printf("%s已尝试 %d次, 成功%d次\n", name, tryTimes.get(), successTimes.get());
         }
     }
 }
